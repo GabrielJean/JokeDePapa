@@ -37,7 +37,7 @@ async def play(ctx):
     if voice_channel!= None:
         # grab user's voice channel
         channel=voice_channel.name
-        await client.say('User is in channel: '+ channel)
+        await client.say('Connectoin au channel: '+ channel)
 
         #Choose a random file to play
         audio = os.listdir("Audio")
@@ -54,7 +54,7 @@ async def play(ctx):
         player.stop()
         await vc.disconnect()
     else:
-        await client.say('User is not in a channel.')
+        await client.say('L\'utilisateur n\'est pas dans un channel)
 
 
 
