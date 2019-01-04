@@ -1,4 +1,5 @@
 #!/bin/python3.6
+import json
 from random import *
 import os
 import discord
@@ -6,14 +7,19 @@ import asyncio
 from itertools import cycle
 from discord.ext import commands
 
-token = "NTMwNDY0NjE0MTAyNTk3NjMy.Dw_xsg.ytzrrtfg_GVtKPfnESL8VSEd1DA"
+
+
+with open('../settings.json') as f:
+    settings = json.load(f)
+
+
 
 client = commands.Bot(command_prefix = '!')
 
 @client.event
 async def on_ready():
-    print("Bot Ready !")
-    await client.change_presence(game=discord.Game(name='with myself'))
+    print("Bot is online !")
+    await client.change_presence(game=discord.Game(name='type !help'))
 
 # @client.command(pass_context=True)
 # async def join(ctx):
@@ -78,4 +84,4 @@ async def say(ctx, *args):
     await client.say(output) 
 
 
-client.run(token)
+client.run(settings['token'])
