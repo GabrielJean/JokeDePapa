@@ -37,7 +37,7 @@ async def play(ctx):
     if voice_channel!= None:
         # grab user's voice channel
         channel=voice_channel.name
-        await client.say('Connectoin au channel: '+ channel)
+        await client.say('Connection au canal de voix: '+ channel)
 
         #Choose a random file to play
         audio = os.listdir("Audio")
