@@ -8,9 +8,9 @@ Thanks.
 
 ## To do
 ### Embedes:
-Title
-Source video
-Participants (maybe)
+Title -
+Source video -
+Participants (maybe) -
 
 ### Error verification
 
