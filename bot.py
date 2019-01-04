@@ -54,7 +54,7 @@ async def play(ctx):
         player.stop()
         await vc.disconnect()
     else:
-        await client.say('L\'utilisateur n\'est pas dans un channel)
+        await client.say('L\'utilisateur n\'est pas dans un channel')
 
 
 
