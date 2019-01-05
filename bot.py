@@ -7,7 +7,8 @@ import asyncio
 from itertools import cycle
 from discord.ext import commands
 
-
+lastnb = 0
+audiofile = 0
 
 with open('../settings.json') as f:
     settings = json.load(f)
@@ -48,7 +49,11 @@ async def play(ctx):
         #Choose a random file to play
         audio = os.listdir("Audio")
         nb_len = len(audio)
-        audiofile = randint(0, nb_len)
+        
+        while audiofile == lastnb:
+            audiofile == randint(0, nb_len)
+            if audiofile != lastnb:
+                lastnb == audiofile
 
         # create StreamPlayer
         vc= await client.join_voice_channel(voice_channel)
