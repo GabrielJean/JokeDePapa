@@ -49,11 +49,7 @@ async def play(ctx):
         #Choose a random file to play
         audio = os.listdir("Audio")
         nb_len = len(audio)
-        
-        while audiofile == lastnb:
-            audiofile == randint(0, nb_len)
-            if audiofile != lastnb:
-                lastnb == audiofile
+        audiofile = randint(0, nb_len)
 
         # create StreamPlayer
         vc= await client.join_voice_channel(voice_channel)
