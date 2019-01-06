@@ -8,6 +8,7 @@ import asyncio
 from itertools import cycle
 from discord.ext import commands
 
+#read the token key from the settings.json file
 with open('../settings.json') as f:
     settings = json.load(f)
 
@@ -15,6 +16,7 @@ with open('../settings.json') as f:
 
 client = commands.Bot(command_prefix = '!')
 
+#Printing when the bot is ready
 @client.event
 async def on_ready():
     print("Bot is online !")
@@ -25,6 +27,7 @@ async def on_ready():
 #     channel = ctx.message.author.voice.voice_channel
 #     await client.join_voice_channel(channel)
 
+#Allow the user to stop the bot before it end by itself
 @client.command(pass_context=True)
 async def stop(ctx):
     server = ctx.message.server
@@ -69,7 +72,7 @@ async def joke(ctx):
         await client.say('L\'utilisateur n\'est pas dans un channel')
 
 
-
+#Log all messages for testings purposes
 @client.event
 async def on_message(message):
     author = message.author
@@ -77,9 +80,12 @@ async def on_message(message):
     print(f"{author} said : {content}")
     await client.process_commands(message)
 
+#Respond Ping to the !ping command (for testing)
 @client.command()
 async def ping():
     await client.say('Pong!')
+
+#Make the bot say wathever is written after the command !say
 @client.command(pass_context=True)
 async def say(ctx, *args):
     await client.delete_message(ctx.message)
@@ -90,4 +96,5 @@ async def say(ctx, *args):
     await client.say(output) 
 
 
+#Start the client
 client.run(settings['token'])
