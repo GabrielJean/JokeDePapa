@@ -1,4 +1,5 @@
 #!/bin/python3.6
+
 import json
 from random import *
 import os
@@ -27,15 +28,15 @@ async def on_ready():
 #     channel = ctx.message.author.voice.voice_channel
 #     await client.join_voice_channel(channel)
 
-# @client.command(pass_context=True)
-# async def leave(ctx):
-#     server = ctx.message.server
-#     voice_client = client.voice_client_in(server)
-#     await voice_client.disconnect()
+@client.command(pass_context=True)
+async def stop(ctx):
+    server = ctx.message.server
+    voice_client = client.voice_client_in(server)
+    await voice_client.disconnect()
 
 
 @client.command(pass_context=True)
-async def play(ctx):
+async def joke(ctx):
     # grab the user who sent the command
     user=ctx.message.author
     voice_channel=user.voice.voice_channel
@@ -49,7 +50,14 @@ async def play(ctx):
         #Choose a random file to play
         audio = os.listdir("Audio")
         nb_len = len(audio)
-        audiofile = randint(0, nb_len)
+        audiofile = randint(0, nb_len - 1)
+
+        embed = discord.Embed()
+        embed.set_author(name='Joke de Papa')
+        embed.set_footer(text='Tout droist réservés à Gaboom Films')
+        embed.set_thumbnail(url='https://sauterellesetcoccinelles.com/wp-content/uploads/2017/10/JOKE-DE-PAPA.jpg')
+        embed.add_field(name='Titre', value=audio[audiofile].replace('.flac', ''))
+        await client.say(embed=embed)
 
         # create StreamPlayer
         vc= await client.join_voice_channel(voice_channel)
