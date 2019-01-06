@@ -8,9 +8,6 @@ import asyncio
 from itertools import cycle
 from discord.ext import commands
 
-lastnb = 0
-audiofile = 0
-
 with open('../settings.json') as f:
     settings = json.load(f)
 
