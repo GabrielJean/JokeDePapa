@@ -1,0 +1,2 @@
+move :
+ - script: "echo test"
