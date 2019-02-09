@@ -1,16 +1,16 @@
-stages:
-  - build
-  - test
-  - deploy
+#stages:
+#  - build
+#  - test
+#  - deploy
 
-job 1:
-  stage: build
-  script: "ls"
-
-job 2:
-  stage: test
-  script: "echo test"
-
-job 3:
-  stage: deploy
-  script: "echo deploy"
+#job 1:
+#  stage: build
+#  script: "ls"
+#
+#job 2:
+#  stage: test
+#  script: "echo test"
+#
+#job 3:
+#  stage: deploy
+#  script: "echo deploy"
