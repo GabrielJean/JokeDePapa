@@ -1,2 +1,3 @@
 move :
- - script "echo test"
+ script:
+ - "echo test"
