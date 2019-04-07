@@ -1,5 +1,3 @@
-#!/bin/python3.6
-
 import json
 from random import *
 import os
@@ -11,8 +9,6 @@ from discord.ext import commands
 #read the token key from the settings.json file
 with open('../settings.json') as f:
     settings = json.load(f)
-
-
 
 client = commands.Bot(command_prefix = '!')
 client.remove_command('help')
